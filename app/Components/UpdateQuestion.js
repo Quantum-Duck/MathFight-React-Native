@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput } from 'react-native';
+import { StyleSheet, Text} from 'react-native';
 
 class UpdateQuestion extends React.Component {
   render() {

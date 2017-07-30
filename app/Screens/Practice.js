@@ -2,23 +2,22 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
 import Textbox from '../Components/Textbox';
 import UpdateQuestion from '../Components/UpdateQuestion'
-
 class Practice extends React.Component {
   CheckAnswer = () =>{
     <UpdateQuestion/>
+    let press = 1
     if (this.state.text == 1) {
-
     } else {
-
         }
+    press += 1
       }
     constructor(props) {
       super(props);
       this.state = { text: 'Enter Answer' };
     }
   render() {
-    Check = 1
     const { navigate } = this.props.navigation;
+    let picture = '../Resources/Checkbox.png'
     return (
       <View style={{
         flex: 1,
