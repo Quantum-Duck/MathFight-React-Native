@@ -2,17 +2,21 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
 import Textbox from '../Components/Textbox';
 import UpdateQuestion from '../Components/UpdateQuestion'
-class Practice extends React.Component {
+
+class BattleScreen extends React.Component {
+
   CheckAnswer = () =>{
     <UpdateQuestion/>
     if (this.state.text == 1) {
     } else {
-        }
-    press += 1
       }
-    ChooseImage = () => {
-
     }
+  ChooseImage = () => {
+    return(
+      '../Resources/Checkbox.png'
+    );
+  }
+
     constructor(props) {
       super(props);
       this.state = { text: 'Enter Answer' };
@@ -27,7 +31,7 @@ class Practice extends React.Component {
 
       }}>
         <Image
-        source={require('../Resources/Checkbox.png')}
+        source={this.ChooseImage()}
         style={{width:20, height:20}}/>
         <Image
         source={require('../Resources/Checkbox.png')}
@@ -62,4 +66,4 @@ class Practice extends React.Component {
 
 
 
-export default Practice
+export default BattleScreen
