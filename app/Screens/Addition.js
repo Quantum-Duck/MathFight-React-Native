@@ -1,16 +1,29 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Image, } from 'react-native';
 import Textbox from '../Components/Textbox';
-import RightWrongImage from '../Components/RightWrongImage'
+import Slider from 'react-native-slider';
+import DifficultySlider from '../Components/DifficultySlider'
 
 
 
 
-class Practice extends React.Component {
+class Addition extends React.Component {
 
-
+  constructor(props) {
+    super(props);
+      let NumOne = this.randomNumber();
+      let NumTwo = this.randomNumber();
+    this.state = {
+      text: '',
+      score: 0,
+      answer: NumOne + NumTwo,
+      SliderValue: 0,
+      myText: NumOne + '+' + NumTwo,
+    };
+  }
   randomNumber = () => {
-    return (Math.floor((Math.random()*(100)) + 0));
+    let ScaledSliderValue = this.state.SliderValue * 97
+    return (Math.floor((Math.random()*(ScaledSliderValue)) + 3));
   }
   initialState = () => {
     let NumOne = this.randomNumber();
@@ -18,6 +31,7 @@ class Practice extends React.Component {
     return{
       score: 0,
       timer: 30,
+      SliderValue: 0,
       answer: NumOne + NumTwo,
       myText: NumOne + '+' + NumTwo,
     }
@@ -37,16 +51,6 @@ class Practice extends React.Component {
       answer: NumOne + NumTwo,
       myText: NumOne + '+' + NumTwo, });
     }
-  constructor(props) {
-    super(props);
-    let NumOne = this.randomNumber();
-    let NumTwo = this.randomNumber();
-    this.state = {
-    text: '',
-    score: 0,
-    answer: NumOne + NumTwo,
-    myText: NumOne + '+' + NumTwo, };
-  }
   SubmitButton = () => {
     this.CheckAnswer();
     this.UpdateQuestion();
@@ -57,8 +61,11 @@ class Practice extends React.Component {
       <View style={{
         flex: 1,
         backgroundColor: '#dab',
-
       }}>
+        <View style={{
+          marginLeft: 10,
+          marginRight: 10,
+        }}>
         <Text style = {{fontSize: 40}}>
           Score: {this.state.score}
         </Text>
@@ -75,6 +82,11 @@ class Practice extends React.Component {
         title="Submit"
         onPress = {this.SubmitButton}
         />
+        <Slider
+          value={this.state.SliderValue}
+          onValueChange={(SliderValue) => this.setState({SliderValue})} />
+        <Text>Value: {this.state.SliderValue}</Text>
+        </View>
       </View>
     );
   }
@@ -82,4 +94,4 @@ class Practice extends React.Component {
 
 
 
-export default Practice
+export default Addition

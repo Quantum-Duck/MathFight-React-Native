@@ -6,46 +6,52 @@ import RightWrongImage from '../Components/RightWrongImage'
 
 
 
-class Practice extends React.Component {
+class Division extends React.Component {
 
 
   randomNumber = () => {
-    return (Math.floor((Math.random()*(100)) + 0));
+    return (Math.floor((Math.random()*(19)) + 1));
   }
   initialState = () => {
-    let NumOne = this.randomNumber();
+    let answer = this.randomNumber();
     let NumTwo = this.randomNumber();
+    let NumOne = answer * NumTwo
     return{
       score: 0,
       timer: 30,
-      answer: NumOne + NumTwo,
-      myText: NumOne + '+' + NumTwo,
+      NumOne: answer * NumTwo,
+      Answer:answer,
+      myText: NumOne + '/' + NumTwo,
     }
   }
   CheckAnswer = () => {
-    if (this.state.text == this.state.answer) {
+    if (this.state.text == this.state.Answer) {
       this.setState({score: this.state.score + 1})
     } else {
       this.setState({score: this.state.score - 0.5})
         }
       }
     UpdateQuestion = () => {
-      NumOne = this.randomNumber();
+      answer = this.randomNumber();
       NumTwo = this.randomNumber();
+      NumOne = answer * NumTwo
       this.setState ({
       text: '',
-      answer: NumOne + NumTwo,
-      myText: NumOne + '+' + NumTwo, });
+      NumOne: answer * NumTwo,
+      Answer:answer,
+      myText: NumOne + '/' + NumTwo, });
     }
   constructor(props) {
     super(props);
-    let NumOne = this.randomNumber();
+    let answer = this.randomNumber();
     let NumTwo = this.randomNumber();
+    let NumOne = answer * NumTwo
     this.state = {
     text: '',
     score: 0,
-    answer: NumOne + NumTwo,
-    myText: NumOne + '+' + NumTwo, };
+    NumOne: answer * NumTwo,
+    Answer:answer,
+    myText: NumOne + '/' + NumTwo, };
   }
   SubmitButton = () => {
     this.CheckAnswer();
@@ -62,7 +68,9 @@ class Practice extends React.Component {
         <Text style = {{fontSize: 40}}>
           Score: {this.state.score}
         </Text>
-
+        <Text style = {{fontSize: 40}}>
+          {this.state.answer}
+        </Text>
         <Text style = {{fontSize: 80}}>
           {this.state.myText}
         </Text>
@@ -82,4 +90,4 @@ class Practice extends React.Component {
 
 
 
-export default Practice
+export default Division

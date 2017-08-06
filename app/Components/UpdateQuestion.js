@@ -1,13 +1,31 @@
-import React from 'react';
-import { StyleSheet, Text} from 'react-native';
+import React, { Component } from 'react'
+import {
+   Text,
+   View,
+   Button
+} from 'react-native'
 
-class UpdateQuestion extends React.Component {
-  render() {
-    return (
-      <View>
-      <Text> wobebgbufiebfw </Text>
-      </View>
-    );
-  }
+export default class Question extends Component {
+   constructor() {
+      super()
+      this.state = {
+         myText: 'The answer is 1'
+      }
+   }
+   UpdateQuestion = () => {
+      this.setState({myText: 'The answer is 2'})
+   }
+   render() {
+      return (
+        <View>
+          <Button
+          title="Next Question"
+          onPress = {this.UpdateQuestion}
+          />
+          <Text>
+            {this.state.myText}
+          </Text>
+        </View>
+      );
+   }
 }
-export default UpdateQuestion

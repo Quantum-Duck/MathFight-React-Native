@@ -21,14 +21,14 @@ class MainScreen extends React.Component {
         />
       </TouchableOpacity>
       <Text/>
-      <TouchableOpacity onPress= {() => navigate('BattleScreen')}>
+      <TouchableOpacity onPress= {() => navigate('ChooseScreen')}>
         <Image
           style={{width:300, height:133.3}}
           source={require('../Resources/PracticeButton.png')}
         />
       </TouchableOpacity>
       <Text></Text>
-      <TouchableOpacity onPress= {() => navigate('BattleScreen')}>
+      <TouchableOpacity onPress= {() => navigate('ChooseScreen')}>
         <Image
           style={{width:300, height:133.3}}
           source={require('../Resources/BattleButton.png')}

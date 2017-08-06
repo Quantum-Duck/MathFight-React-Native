@@ -6,11 +6,11 @@ import RightWrongImage from '../Components/RightWrongImage'
 
 
 
-class Practice extends React.Component {
+class Multiplication extends React.Component {
 
 
   randomNumber = () => {
-    return (Math.floor((Math.random()*(100)) + 0));
+    return (Math.floor((Math.random()*(20)) + 0));
   }
   initialState = () => {
     let NumOne = this.randomNumber();
@@ -18,8 +18,8 @@ class Practice extends React.Component {
     return{
       score: 0,
       timer: 30,
-      answer: NumOne + NumTwo,
-      myText: NumOne + '+' + NumTwo,
+      answer: NumOne * NumTwo,
+      myText: NumOne + 'x' + NumTwo,
     }
   }
   CheckAnswer = () => {
@@ -34,8 +34,8 @@ class Practice extends React.Component {
       NumTwo = this.randomNumber();
       this.setState ({
       text: '',
-      answer: NumOne + NumTwo,
-      myText: NumOne + '+' + NumTwo, });
+      answer: NumOne * NumTwo,
+      myText: NumOne + 'x' + NumTwo, });
     }
   constructor(props) {
     super(props);
@@ -44,8 +44,8 @@ class Practice extends React.Component {
     this.state = {
     text: '',
     score: 0,
-    answer: NumOne + NumTwo,
-    myText: NumOne + '+' + NumTwo, };
+    answer: NumOne * NumTwo,
+    myText: NumOne + 'x' + NumTwo, };
   }
   SubmitButton = () => {
     this.CheckAnswer();
@@ -82,4 +82,4 @@ class Practice extends React.Component {
 
 
 
-export default Practice
+export default Multiplication
